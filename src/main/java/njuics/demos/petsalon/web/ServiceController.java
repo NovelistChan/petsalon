@@ -5,10 +5,11 @@ import njuics.demos.petsalon.repository.*;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 public class ServiceController {
+    @Autowired
     private final ServiceRepository repository;
     ServiceController(ServiceRepository repository){
         this.repository = repository;

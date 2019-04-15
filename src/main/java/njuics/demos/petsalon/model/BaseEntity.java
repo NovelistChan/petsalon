@@ -9,8 +9,6 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Integer id;
 
     public Integer getId() {

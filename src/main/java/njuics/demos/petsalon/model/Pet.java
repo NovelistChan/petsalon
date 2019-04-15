@@ -11,27 +11,14 @@ import java.util.*;
 @Entity
 @Table(name = "pets")
 public class Pet extends NamedEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    @Column(name = "date")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
-    private Date birthDate;
-
-    @ManyToOne
-    @JoinColumn(name = "type")
     private PetType type;
 
     @ManyToOne
     @JoinColumn(name = "owner")
     private Owner owner;
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public Date getBirthDate() {
-        return this.birthDate;
-    }
 
     public PetType getType() {
         return this.type;
@@ -45,7 +32,7 @@ public class Pet extends NamedEntity {
         return this.owner;
     }
 
-    protected void setOwner(Owner owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 

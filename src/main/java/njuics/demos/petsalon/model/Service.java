@@ -10,18 +10,16 @@ import java.util.Date;
 @Entity
 @Table(name = "services")
 public class Service extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date date;
 
-    @NotEmpty
-    @Column(name = "fee")
     private Double fee;
 
-    @ManyToOne
-    @JoinColumn(name = "category")
     private ServiceCategory serviceCategory;
 
     public Service() {

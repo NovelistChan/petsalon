@@ -3,12 +3,13 @@ import njuics.demos.petsalon.model.*;
 import njuics.demos.petsalon.repository.*;
 
 import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class PetController {
+    @Autowired
     private final PetRepository repository;
     PetController(PetRepository repository){
         this.repository = repository;
@@ -35,8 +36,8 @@ public class PetController {
         return repository.findById(id)
                 .map(pet -> {
                     pet.setName(newPet.getName());
-                    pet.setBirthDate(newPet.getBirthDate());
                     pet.setType(newPet.getType());
+                    pet.setOwner(newPet.getOwner());
                     return repository.save(pet);
                 })
                 .orElseGet(() -> {
