@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-public interface ServiceRepository extends  JpaRepository<Service, Integer>{
+public interface ServiceRepository extends  CrudRepository<Service, Integer>{
 //    List<ServiceCategory> findServiceCategories() throws DataAccessException;
 //    Service findByCategory(@Param("Category") ServiceCategory category);
 //    Service deleteByCategory(@Param("Category") ServiceCategory category);

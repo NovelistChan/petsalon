@@ -17,7 +17,7 @@ public class OwnerController {
     }
 
     @GetMapping("/owners")
-    List<Owner> all() {
+    public @ResponseBody Iterable<Owner> all() {
         return repository.findAll();
     }
 

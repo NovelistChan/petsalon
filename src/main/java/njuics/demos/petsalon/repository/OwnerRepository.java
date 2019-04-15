@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.*;
 
-public interface OwnerRepository extends JpaRepository<Owner, Integer> {
+public interface OwnerRepository extends CrudRepository<Owner, Integer> {
 //    Owner findByName(@Param("name") String name);
 //    Owner deleteByName(@Param("name") String name);
 //    Owner save(Owner entity);

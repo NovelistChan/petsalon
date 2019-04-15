@@ -16,7 +16,7 @@ public class ServiceController {
     }
 
     @GetMapping("/services")
-    List<Service> all(){
+    public @ResponseBody Iterable<Service> all(){
         return repository.findAll();
     }
 

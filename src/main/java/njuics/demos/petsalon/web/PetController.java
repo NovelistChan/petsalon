@@ -16,7 +16,7 @@ public class PetController {
     }
 
     @GetMapping("/pets")
-    List<Pet> all(){
+    public @ResponseBody Iterable<Pet> all(){
         return repository.findAll();
     }
 
