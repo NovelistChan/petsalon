@@ -14,23 +14,39 @@ public class PetController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/allpets", method = RequestMethod.GET)
+    @GetMapping("/pets")
     List<Pet> all(){
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/newpet", method = RequestMethod.POST)
+    @PostMapping("/pets")
     Pet newPet(@RequestBody Pet newPet){
         return repository.save(newPet);
     }
 
-    @RequestMapping(value = "/fdpets/{name}", method = RequestMethod.GET)
-    Pet one(@PathVariable String name){
-        return repository.findByName(name);
+    @GetMapping("/pets/{id}")
+    Pet one(@PathVariable Integer id){
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException());
     }
 
-    @RequestMapping(value = "/dlpets/{name}", method = RequestMethod.DELETE)
-    void deletePet(@PathVariable String name){
-        repository.deleteByName(name);
+    @PutMapping("/pets/{id}")
+    Pet replacePet(@RequestBody Pet newPet, @PathVariable Integer id){
+        return repository.findById(id)
+                .map(pet -> {
+                    pet.setName(newPet.getName());
+                    pet.setBirthDate(newPet.getBirthDate());
+                    pet.setType(newPet.getType());
+                    return repository.save(pet);
+                })
+                .orElseGet(() -> {
+                    newPet.setId(id);
+                    return repository.save(newPet);
+                });
+    }
+
+    @DeleteMapping("/pets/{id}")
+    void deletePet(@PathVariable Integer id){
+        repository.deleteById(id);
     }
 }

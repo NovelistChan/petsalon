@@ -14,23 +14,39 @@ public class ServiceController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/allservices", method = RequestMethod.GET)
+    @GetMapping("/services")
     List<Service> all(){
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/newservice", method = RequestMethod.POST)
+    @PostMapping("/services")
     Service newService(@RequestBody Service newService){
         return repository.save(newService);
     }
 
-    @RequestMapping(value = "/fdservices/{name}", method = RequestMethod.GET)
-    Service one(@PathVariable ServiceCategory serviceCategory){
-        return repository.findByCategory(serviceCategory);
+    @GetMapping("/services/{id}")
+    Service one(@PathVariable Integer id){
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException());
     }
 
-    @RequestMapping(value = "/dlservices/{name}", method = RequestMethod.DELETE)
-    void deleteService(@PathVariable ServiceCategory serviceCategory){
-        repository.deleteByCategory(serviceCategory);
+    @PutMapping("/services/{id}")
+    Service replaceService(@RequestBody Service newService, @PathVariable Integer id){
+        return repository.findById(id)
+                .map(Service -> {
+                    Service.setDate(newService.getDate());
+                    Service.setFee(newService.getFee());
+                    Service.setServiceCategory(newService.getServiceCategory());
+                    return repository.save(Service);
+                })
+                .orElseGet(() -> {
+                    newService.setId(id);
+                    return repository.save(newService);
+                });
+    }
+
+    @DeleteMapping("/services/{id}")
+    void deleteService(@PathVariable Integer id){
+        repository.deleteById(id);
     }
 }

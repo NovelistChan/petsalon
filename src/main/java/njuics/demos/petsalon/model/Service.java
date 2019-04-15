@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "services")
 public class Service extends BaseEntity {
 
-    @Column(name = "service_date")
+    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date date;
@@ -44,5 +44,7 @@ public class Service extends BaseEntity {
         this.fee = fee;
     }
 
+    public void setServiceCategory(ServiceCategory serviceCategory) { this.serviceCategory = serviceCategory; }
 
+    public ServiceCategory getServiceCategory() { return this.serviceCategory; }
 }
