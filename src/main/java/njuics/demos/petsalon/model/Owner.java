@@ -16,6 +16,7 @@ import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 
 @Entity
+@Table(name = "owners")
 public class Owner extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
