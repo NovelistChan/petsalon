@@ -1,6 +1,6 @@
 import react,{Component} from 'react';
 import display from '../../assets/bone.png';
-import {List,Avatar} from 'antd';
+import {List,Avatar,Icon} from 'antd';
 import styles from '../index.css';
 import Link from 'umi/link';
 import {connect} from 'dva';
@@ -32,7 +32,7 @@ class myList extends Component{
         renderItem={item => (
           <List.Item actions={[<a href="http://www.baidu.com">baidu</a>,<Link to="/">Back to index</Link>]}>
             <List.Item.Meta
-              avatar={<Avatar src={display} />}
+              avatar={<Avatar src={display}/>}
               title={<a href="https://ant.design">{item.title}</a>}
               description={item.description}
             />

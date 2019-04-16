@@ -21,10 +21,11 @@ public class Owner extends NamedEntity{
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets;
 
-    public Owner(String name){
+/*    public Owner(String name, Integer id){
       this.setName(name);
+      this.setId(id);
     }
-
+*/
     public void setPets(Set<Pet> pets) { this.pets = pets; }
 
     public Set<Pet> getPets() { return this.pets; }

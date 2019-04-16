@@ -23,10 +23,17 @@ public class Service extends BaseEntity {
     @Column(name = "sv_category")
     private ServiceCategory serviceCategory;
 
-    public Service() {
-        this.date = new Date();
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
+/*
+    public Service(Integer id, Double fee, ServiceCategory serviceCategory) {
+      this.setServiceCategory(serviceCategory);
+      this.setFee(fee);
+      this.setId(id);
+      this.date = new Date();
     }
-
+*/
     public Date getDate() {
         return this.date;
     }
