@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 
@@ -15,20 +15,15 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 
+@Data
 @Entity
-@Table(name = "owners")
-public class Owner extends BaseEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private String name;
-
-  //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+public class Owner extends NamedEntity{
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets;
 
-    public String getName() { return this.name; }
-
-    public void setName(String name) { this.name = name; }
+    public Owner(String name){
+      this.setName(name);
+    }
 
     public void setPets(Set<Pet> pets) { this.pets = pets; }
 

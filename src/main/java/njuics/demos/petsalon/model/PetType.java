@@ -4,8 +4,6 @@ import njuics.demos.petsalon.web.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "types")
 public enum PetType {
-
+  cat, dog
 }

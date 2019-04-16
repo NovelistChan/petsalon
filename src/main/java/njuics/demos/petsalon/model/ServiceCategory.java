@@ -7,5 +7,5 @@ import javax.persistence.Table;
 //@Entity
 //@Table(name = "categories")
 public enum ServiceCategory {
-
+  wash, cut, blow
 }

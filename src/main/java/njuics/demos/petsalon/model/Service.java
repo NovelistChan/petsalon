@@ -6,20 +6,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import lombok.Data;
 
-//@Entity
+@Data
+@Entity
 //@Table(name = "services")
 public class Service extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date date;
 
+    @Column(name = "fee")
     private Double fee;
 
+    @Column(name = "sv_category")
     private ServiceCategory serviceCategory;
 
     public Service() {
