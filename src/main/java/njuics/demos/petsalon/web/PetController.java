@@ -1,4 +1,5 @@
 package njuics.demos.petsalon.web;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import njuics.demos.petsalon.model.*;
 import njuics.demos.petsalon.repository.*;
 
@@ -15,6 +16,7 @@ public class PetController {
         this.repository = repository;
     }
 
+    @JsonBackReference
     @GetMapping("/pets")
     public @ResponseBody Iterable<Pet> all(){
         return repository.findAll();
@@ -25,6 +27,7 @@ public class PetController {
         return repository.save(newPet);
     }
 
+    @JsonBackReference
     @GetMapping("/pets/{id}")
     Pet one(@PathVariable Integer id){
         return repository.findById(id)

@@ -1,6 +1,7 @@
 package njuics.demos.petsalon.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import njuics.demos.petsalon.repository.*;
@@ -20,13 +21,20 @@ public class Pet extends NamedEntity {
     private PetType type;
 
     //@JsonManagedReference
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
+    //@JsonIgnore
+    @JsonBackReference
+    //@JsonIgnoreProperties("pets")
+    @ManyToOne(targetEntity = Owner.class)
+    @JoinColumn(name="owner", referencedColumnName = "id")
+    //@JoinColumn
     private Owner owner;
 
-    //@JsonBackReference
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
+    //@JsonManagedReference
+    //@JsonIgnoreProperties("pet")
+    //@JsonIgnore
+    @OneToMany(targetEntity = Service.class, cascade = CascadeType.ALL)
+    @JoinColumn(name="pet", referencedColumnName = "id")
+    //@JoinColumn
     private Set<Service> services;
 
  /*   public Pet(String name, PetType type, Integer id){

@@ -1,4 +1,5 @@
 package njuics.demos.petsalon.web;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import njuics.demos.petsalon.model.*;
 import njuics.demos.petsalon.repository.*;
 
@@ -15,6 +16,7 @@ public class ServiceController {
         this.repository = repository;
     }
 
+    @JsonBackReference
     @GetMapping("/services")
     public @ResponseBody Iterable<Service> all(){
         return repository.findAll();
@@ -25,6 +27,7 @@ public class ServiceController {
         return repository.save(newService);
     }
 
+    @JsonBackReference
     @GetMapping("/services/{id}")
     Service one(@PathVariable Integer id){
         return repository.findById(id)

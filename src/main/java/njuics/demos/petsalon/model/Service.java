@@ -1,6 +1,7 @@
 package njuics.demos.petsalon.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import njuics.demos.petsalon.repository.*;
 import njuics.demos.petsalon.web.*;
@@ -27,9 +28,12 @@ public class Service extends BaseEntity {
     private ServiceCategory serviceCategory;
 
     //@JsonManagedReference
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
+    //@JsonIgnore
+    @JsonBackReference
+    //@JsonIgnoreProperties("services")
+    @ManyToOne(targetEntity = Pet.class)
+    @JoinColumn(name="pet", referencedColumnName = "id")
+    //@JoinColumn
     private Pet pet;
 
 /*
