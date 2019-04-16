@@ -16,7 +16,7 @@ public class ServiceController {
         this.repository = repository;
     }
 
-    @JsonBackReference
+    //@JsonBackReference
     @GetMapping("/services")
     public @ResponseBody Iterable<Service> all(){
         return repository.findAll();
@@ -27,7 +27,7 @@ public class ServiceController {
         return repository.save(newService);
     }
 
-    @JsonBackReference
+    //@JsonBackReference
     @GetMapping("/services/{id}")
     Service one(@PathVariable Integer id){
         return repository.findById(id)

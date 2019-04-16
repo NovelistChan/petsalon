@@ -17,7 +17,7 @@ public class OwnerController {
         this.repository = repository;
     }
 
-    @JsonBackReference
+    //@JsonBackReference
     @GetMapping("/owners")
     public @ResponseBody Iterable<Owner> all() {
         return repository.findAll();
@@ -28,7 +28,7 @@ public class OwnerController {
         return repository.save(newOwner);
     }
 
-    @JsonBackReference
+    //@JsonBackReference
     @GetMapping("/owners/{id}")
     Owner one(@PathVariable Integer id){
         return repository.findById(id)
