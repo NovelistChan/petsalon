@@ -1,4 +1,7 @@
 package njuics.demos.petsalon.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import njuics.demos.petsalon.repository.*;
 import njuics.demos.petsalon.web.*;
@@ -16,10 +19,13 @@ public class Pet extends NamedEntity {
     @Column(name = "type")
     private PetType type;
 
+    //@JsonManagedReference
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
+    //@JsonBackReference
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
     private Set<Service> services;
 

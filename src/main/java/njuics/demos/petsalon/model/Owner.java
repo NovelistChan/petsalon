@@ -1,4 +1,6 @@
 package njuics.demos.petsalon.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import njuics.demos.petsalon.repository.*;
 import njuics.demos.petsalon.web.*;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import org.springframework.core.style.ToStringCreator;
 @Data
 @Entity
 public class Owner extends NamedEntity{
+    //@JsonBackReference
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets;
 
