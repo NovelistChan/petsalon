@@ -13,3 +13,6 @@
     - 前端
     - pages、list、layout created but data is assigned
     - prob: actions connect(how?)
+
+  - 4.16 17.46
+    - 后端newbug: 使用postman进行调试时出现：(Could not write JSON: Infinite recursion)
