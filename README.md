@@ -14,5 +14,10 @@
     - pages、list、layout created but data is assigned
     - prob: actions connect(how?)
 
-  - 4.16 17.46
+  - 4.16 17:46
     - 后端newbug: 使用postman进行调试时出现：(Could not write JSON: Infinite recursion)
+    
+  - 4.16 20:09
+    - bug (parly)resolved:
+     -- solution1: 应用@JsonBackReference&@JsonManagedReference，prob: 错误编号415，单纯使用backreference则无法同步owners且传送完pet相关联数据后，woners中的get报错
+     -- solution2: 应用@JsonIgnore，不会报错，但不会自动形成关联关系，需要手动将所有关系构建完整
