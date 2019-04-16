@@ -37,7 +37,7 @@ public class PetController {
                 .map(pet -> {
                     pet.setName(newPet.getName());
                     pet.setType(newPet.getType());
-                    pet.setOwner(newPet.getOwner());
+               //     pet.setOwner(newPet.getOwner());
                     return repository.save(pet);
                 })
                 .orElseGet(() -> {

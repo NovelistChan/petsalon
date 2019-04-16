@@ -1,18 +1,23 @@
 import styles from './index.css';
+import {Button,Tag,Row,Col} from 'antd';
+import React,{Component} from 'react';
+import {connect} from 'dva';
+import Link from 'umi/link';
 
-
-export default function() {
-  return (
+class MyPage extends Component{
+  render(){
+    return(
     <div className={styles.normal}>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
-        <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
+      <Col>
+        <Row>
+          Welcome!
+          </Row>
+        <Row>
+          Click the Buttons left above to enter Petsalon!
+        </Row>
+      </Col>
+    </div>)
+  }
 }
+
+export default MyPage;

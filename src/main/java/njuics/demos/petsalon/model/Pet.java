@@ -8,17 +8,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
-@Table(name = "pets")
+//@Entity
+//@Table(name = "pets")
 public class Pet extends NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private PetType type;
 
-    @ManyToOne
-    @JoinColumn(name = "owner")
-    private Owner owner;
+ //   @ManyToOne
+ //   @JoinColumn(name = "owner")
+ //   private Owner owner;
 
     public PetType getType() {
         return this.type;
@@ -28,12 +28,12 @@ public class Pet extends NamedEntity {
         this.type = type;
     }
 
-    public Owner getOwner() {
-        return this.owner;
-    }
+ //   public Owner getOwner() {
+ //       return this.owner;
+ //   }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
+  //  public void setOwner(Owner owner) {
+  //      this.owner = owner;
+  //  }
 
 }

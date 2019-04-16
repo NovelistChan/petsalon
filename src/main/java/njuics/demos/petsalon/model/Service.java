@@ -7,8 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "services")
+//@Entity
+//@Table(name = "services")
 public class Service extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

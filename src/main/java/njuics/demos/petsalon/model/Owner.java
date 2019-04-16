@@ -23,7 +23,7 @@ public class Owner extends BaseEntity{
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+  //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
 
     public String getName() { return this.name; }
