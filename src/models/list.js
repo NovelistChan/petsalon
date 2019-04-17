@@ -13,7 +13,7 @@ export default{
     },
     effects:{
         *fetchData({payload},{call,put}){
-            const response = yield call(request,'/api/fetch');
+            const response = yield call(request,'/api/owners');
             yield put({type:'setData',payload:response})
         }
     }

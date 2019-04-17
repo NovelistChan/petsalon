@@ -10,7 +10,7 @@ export default {
       dynamicImport: false,
       title: 'petsalon',
       dll: false,
-      
+
       routes: {
         exclude: [
           /models\//,
@@ -20,6 +20,13 @@ export default {
           /components\//,
         ],
       },
+
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true,
+        },
+      }
     }],
   ],
 }

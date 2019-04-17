@@ -33,8 +33,8 @@ class myList extends Component{
           <List.Item actions={[<a href="http://www.baidu.com">baidu</a>,<Link to="/">Back to index</Link>]}>
             <List.Item.Meta
               avatar={<Avatar src={display}/>}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description={item.description}
+              title={<a href="https://ant.design">{item.id}</a>}
+              description={item.name}
             />
             </List.Item>
         )}

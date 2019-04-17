@@ -8,7 +8,7 @@ import njuics.demos.petsalon.web.*;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class OwnerResourceAssembler implements ResourceAssembler<Owner, Resource<Owner>>{
   @Override
@@ -18,3 +18,4 @@ public class OwnerResourceAssembler implements ResourceAssembler<Owner, Resource
       linkTo(methodOn(OwnerController.class).all()).withRel("owners"));
   }
 }
+*/

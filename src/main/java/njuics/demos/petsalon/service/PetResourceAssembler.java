@@ -9,7 +9,7 @@ import njuics.demos.petsalon.web.*;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class PetResourceAssembler implements ResourceAssembler<Pet, Resource<Pet>>{
   @Override
@@ -19,3 +19,4 @@ public class PetResourceAssembler implements ResourceAssembler<Pet, Resource<Pet
       linkTo(methodOn(PetController.class).all()).withRel("pets"));
   }
 }
+*/

@@ -9,7 +9,7 @@ import njuics.demos.petsalon.web.*;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class ServiceResourceAssembler implements ResourceAssembler<Service, Resource<Service>>{
   @Override
@@ -19,3 +19,4 @@ public class ServiceResourceAssembler implements ResourceAssembler<Service, Reso
       linkTo(methodOn(ServiceController.class).all()).withRel("services"));
   }
 }
+*/
