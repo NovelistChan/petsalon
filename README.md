@@ -31,3 +31,4 @@
 
   - 4.17 13:36
     - bug hateoas添加后，仅postman可正常操作，浏览器端error
+    - solution: 回退至原版本(注释掉了RESTFUL的改动,assembler等)，暂时先进行前后端交互实现
