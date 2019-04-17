@@ -17,7 +17,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import java.net.URISyntaxException;
 import java.net.URI;
 @RestController
-@RequestMapping(path="/api")
 public class OwnerController {
     @Autowired
 
