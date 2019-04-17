@@ -6,13 +6,13 @@ import Link from 'umi/link';
 import {connect} from 'dva';
 const mapStateToProps = (state) =>{
   return {
-    list: state.list
+    list: state.servicelist
   }
 }
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    fetch: ()=>dispatch({type:"list/fetchData"})
+    fetch: ()=>dispatch({type:"servicelist/fetchData"})
   }
 }
 
@@ -32,8 +32,8 @@ class myList extends Component{
           <List.Item actions={[<a href="http://www.baidu.com">baidu</a>,<Link to="/">Back to index</Link>]}>
             <List.Item.Meta
               avatar={<Avatar src={display} />}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description={item.description}
+              title={<a href="https://ant.design">{"服务名称：" + item.serviceCategory}</a>}
+              description={"服务费用：" + item.fee}
             />
             </List.Item>
         )}

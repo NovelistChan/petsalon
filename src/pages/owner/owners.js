@@ -6,14 +6,14 @@ import Link from 'umi/link';
 import {connect} from 'dva';
 const mapStateToProps = (state) =>{
   return {
-    list: state.list
+    list: state.ownerlist
   }
 }
 
 const mapDispatchToProps = (dispatch) =>{
   return {
     // click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
-    fetch: ()=>dispatch({type:"list/fetchData"})
+    fetch: ()=>dispatch({type:"ownerlist/fetchData"})
   }
 }
 
@@ -33,8 +33,8 @@ class myList extends Component{
           <List.Item actions={[<a href="http://www.baidu.com">baidu</a>,<Link to="/">Back to index</Link>]}>
             <List.Item.Meta
               avatar={<Avatar src={display}/>}
-              title={<a href="https://ant.design">{item.id}</a>}
-              description={item.name}
+              title={<a href="https://ant.design">{"客人姓名：" + item.name}</a>}
+              description={"客人编号：" + item.id}
             />
             </List.Item>
         )}

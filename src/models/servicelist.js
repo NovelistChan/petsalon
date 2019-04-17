@@ -1,5 +1,5 @@
 export default{
-    namespace:'list',
+    namespace:'servicelist',
     state:{},
     reducers:{
         setData(state,{payload}){
@@ -13,7 +13,7 @@ export default{
     },
     effects:{
         *fetchData({payload},{call,put}){
-            const response = yield call(request,'/api/owners');
+            const response = yield call(request,'/api/services');
             yield put({type:'setData',payload:response})
         }
     }

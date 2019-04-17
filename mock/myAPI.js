@@ -18,5 +18,5 @@ const data = [
 ];
 
 export default{
-    'GET /api/fetch': data,
+//    'GET /api/owners/*': 'localhost:8080/api/owners'
 }
