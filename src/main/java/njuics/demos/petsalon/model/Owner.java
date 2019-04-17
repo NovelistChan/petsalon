@@ -18,21 +18,17 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 
-@Data
+
 @Entity
 public class Owner extends NamedEntity{
-    //@JsonManagedReference
+    //
     //@JsonIgnore
+    //@JsonBackReference
+    //@JsonManagedReference
     @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
     @JoinColumn(name="owner", referencedColumnName = "id")
-    //@JoinColumn
     private Set<Pet> pets;
 
-/*    public Owner(String name, Integer id){
-      this.setName(name);
-      this.setId(id);
-    }
-*/
     public void setPets(Set<Pet> pets) { this.pets = pets; }
 
     public Set<Pet> getPets() { return this.pets; }

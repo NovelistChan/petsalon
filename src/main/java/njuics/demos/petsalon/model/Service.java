@@ -12,7 +12,7 @@ import javax.persistence.*;
 import java.util.Date;
 import lombok.Data;
 
-@Data
+
 @Entity
 //@Table(name = "services")
 public class Service extends BaseEntity {
@@ -27,13 +27,9 @@ public class Service extends BaseEntity {
     @Column(name = "sv_category")
     private ServiceCategory serviceCategory;
 
-    //@JsonManagedReference
-    //@JsonIgnore
     @JsonBackReference
-    //@JsonIgnoreProperties("services")
     @ManyToOne(targetEntity = Pet.class)
     @JoinColumn(name="pet", referencedColumnName = "id")
-    //@JoinColumn
     private Pet pet;
 
 /*

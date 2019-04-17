@@ -13,7 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.*;
 
-@Data
+
 @Entity
 public class Pet extends NamedEntity {
 
@@ -21,17 +21,12 @@ public class Pet extends NamedEntity {
     private PetType type;
 
     //@JsonManagedReference
-    //@JsonIgnore
     @JsonBackReference
-    //@JsonIgnoreProperties("pets")
     @ManyToOne(targetEntity = Owner.class)
     @JoinColumn(name="owner", referencedColumnName = "id")
-    //@JoinColumn
     private Owner owner;
 
-    //@JsonManagedReference
-    //@JsonIgnoreProperties("pet")
-    //@JsonIgnore
+    //@JsonBackReference
     @OneToMany(targetEntity = Service.class, cascade = CascadeType.ALL)
     @JoinColumn(name="pet", referencedColumnName = "id")
     //@JoinColumn

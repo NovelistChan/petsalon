@@ -5,5 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 public enum PetType {
-  cat, dog
+  CAT,
+  DOG
 }

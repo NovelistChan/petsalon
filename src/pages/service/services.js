@@ -12,7 +12,6 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    // click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
     fetch: ()=>dispatch({type:"list/fetchData"})
   }
 }

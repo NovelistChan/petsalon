@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Collection;
 import java.util.List;
 
-public interface PetRepository extends CrudRepository<Pet, Integer> {
+public interface PetRepository extends JpaRepository<Pet, Integer> {
 //    List<PetType> findPetTypes() throws DataAccessException;
 //    Pet findByName(@Param("name") String name);
 //    Pet deleteByName(@Param("name") String name);
