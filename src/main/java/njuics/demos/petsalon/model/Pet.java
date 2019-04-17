@@ -26,7 +26,7 @@ public class Pet extends NamedEntity {
     @JoinColumn(name="owner", referencedColumnName = "id")
     private Owner owner;
 
-    //@JsonBackReference
+    @JsonManagedReference
     @OneToMany(targetEntity = Service.class, cascade = CascadeType.ALL)
     @JoinColumn(name="pet", referencedColumnName = "id")
     //@JoinColumn

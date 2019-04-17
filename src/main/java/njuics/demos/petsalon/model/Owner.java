@@ -24,7 +24,7 @@ public class Owner extends NamedEntity{
     //
     //@JsonIgnore
     //@JsonBackReference
-    //@JsonManagedReference
+    @JsonManagedReference
     @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
     @JoinColumn(name="owner", referencedColumnName = "id")
     private Set<Pet> pets;
