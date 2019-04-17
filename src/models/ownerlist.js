@@ -6,15 +6,34 @@ export default{
             return { data: payload};
         },
         appendData(state,{payload}){
-            const newData = state.data;
-            newData.concat(payload);
+            let newData = state.data;
+            newData = newData.concat(payload);
             return { data: newData};
+        },
+        renewData(state,{payload}){
+            return { data: payload}
         }
     },
     effects:{
         *fetchData({payload},{call,put}){
             const response = yield call(request,'/api/owners');
             yield put({type:'setData',payload:response})
+        },
+        *newData({payload},{call,put}){
+            const value = {
+              id: Number(payload.id),
+              name: payload.name,
+              pets:[]
+            }
+            const values = value;
+            const response = yield call(request,'/api/owners', {
+            headers: {
+              'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(value),
+          });
+            yield put({type:'appendData',payload:response})
         }
     }
 }

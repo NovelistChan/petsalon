@@ -6,8 +6,8 @@ export default{
             return { data: payload};
         },
         appendData(state,{payload}){
-            const newData = state.data;
-            newData.concat(payload);
+            let newData = state.data;
+            newData = newData.concat(payload);
             return { data: newData};
         }
     },
@@ -15,6 +15,22 @@ export default{
         *fetchData({payload},{call,put}){
             const response = yield call(request,'/api/services');
             yield put({type:'setData',payload:response})
+        },
+        *newData({payload},{call,put}){
+            const value = {
+              id: Number(payload.id),
+              serviceCategory: payload.serviceCategory,
+              fee: payload.fee,
+            }
+            const values = value;
+            const response = yield call(request,'/api/services', {
+            headers: {
+              'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(value),
+          });
+            yield put({type:'appendData',payload:response})
         }
     }
 }
