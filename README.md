@@ -24,3 +24,7 @@
 
   - 4.16 21:36
     - solution3: @JsonIgnoreProperties 单向成功, GET失败
+
+  - 4.17 11:28
+    - bug solved!!!!: 单项成功Get失败的原因：lombok.@Data与@JsonBackReference冲突，删去@Data
+    - add restful, package: service, classes: Owner/Pet/ServiceResourceAssembler
