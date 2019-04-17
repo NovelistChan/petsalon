@@ -15,7 +15,8 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
   return {
     // click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
-    fetch: ()=>dispatch({type:"petlist/fetchData"})
+    fetch: ()=>dispatch({type:"petlist/fetchData"}),
+    deleteData: ({payload})=>dispatch({type:"petlist/deleteData", payload:payload})
   }
 }
 
@@ -94,7 +95,12 @@ class myList extends Component{
         dataSource={data}
         renderItem={item => (
           <List.Item actions={[<a href="http://www.baidu.com">Service List</a>,
-          <a href="http://www.baidu.com">Delete</a>,
+          <Button type="primary" ghost onClick = {
+            ()=>{
+              console.log(item);
+              this.props.deleteData({payload:item});
+            }
+          }>Delete</Button>,
           <a href="http://www.baidu.com">Edit</a>,
           <Link to="/">Back to index</Link>]}>
             <List.Item.Meta

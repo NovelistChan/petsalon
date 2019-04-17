@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) =>{
   return {
     // click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
     fetch: ()=>dispatch({type:"ownerlist/fetchData"}),
-    update: ()=>dispatch({type:"ownerlsit/updateData"})
+    update: ()=>dispatch({type:"ownerlsit/updateData"}),
+    deleteData: ({payload})=>dispatch({type:"ownerlist/deleteData", payload:payload})
   }
 }
 
@@ -48,6 +49,23 @@ class myList extends Component{
       visible: false,
     });
   }
+
+//  handleDeleteOk = (e) => {
+//    const { dispatch, form: { validateFields } } = this.props;
+//    console.log("deleting...");
+//    console.log(e);
+//    console.log("deleting...");
+//    validateFields((err, values) => {
+//    if (!err) {
+//      dispatch({
+//        type: 'ownerlist/deleteData',
+//        payload: values,
+//      });
+      // 重置 `visible` 属性为 false 以关闭对话框
+//      this.setState({ visible: false });
+//    }
+//  });
+//  }
 
   componentDidMount(){
     this.props.fetch();
@@ -89,11 +107,13 @@ class myList extends Component{
         itemLayout="horizontal"
         dataSource={data}
         renderItem={item => (
-          <List.Item actions={[<Button type="primary" ghost onClick ={()=>{
-            this.props.update();
-            data = this.props.list.data===undefined?[]:this.props.list.data;
-          }}>Pet List</Button>,
-          <a href="http://www.baidu.com">Delete</a>,
+          <List.Item actions={[<Button type="primary" ghost>Pet List</Button>,
+          <Button type="primary" ghost onClick = {
+            ()=>{
+              console.log(item);
+              this.props.deleteData({payload:item});
+            }
+          }>Delete</Button>,
           <a href="http://www.baidu.com">Edit</a>,
           <Link to="/">Back to index</Link>]}>
             <List.Item.Meta

@@ -25,7 +25,6 @@ export default{
               name: payload.name,
               pets:[]
             }
-            const values = value;
             const response = yield call(request,'/api/owners', {
             headers: {
               'content-type': 'application/json',
@@ -34,6 +33,24 @@ export default{
             body: JSON.stringify(value),
           });
             yield put({type:'appendData',payload:response})
+        },
+        *deleteData({payload},{call,put}){
+            console.log(payload);
+            const id = payload.id;
+            const value = {
+              id: payload.id,
+              name: payload.name,
+              pets:[]
+            }
+            yield call(request,'/api/owners/' + id, {
+              headers: {
+                'content-type': 'application/json',
+              },
+              method: 'DELETE',
+              body: JSON.stringify(value),
+          });
+            const response = yield call(request,'/api/owners');
+            yield put({type:'setData',payload:response})
         }
     }
 }
@@ -50,6 +67,6 @@ function checkStatus(response) {
 async function request(url, options) {
   const response = await fetch(url, options);
   checkStatus(response);
-  debugger
+//  debugger
   return await response.json();
 }
