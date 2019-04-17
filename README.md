@@ -28,3 +28,6 @@
   - 4.17 11:28
     - bug solved!!!!: 单项成功Get失败的原因：lombok.@Data与@JsonBackReference冲突，删去@Data
     - add restful, package: service, classes: Owner/Pet/ServiceResourceAssembler
+
+  - 4.17 13:36
+    - bug hateoas添加后，仅postman可正常操作，浏览器端error
